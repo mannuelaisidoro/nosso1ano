@@ -72,11 +72,12 @@ discoverMusicBtn.addEventListener("click", () => {
 
 // 4. Carrossel de fotos ("Nossos Momentos")
 const slides = [
-  { img: "fotos/foto1.jpg", caption: '"O começo da nossa história"' },
-  { img: "fotos/foto2.jpg", caption: '"Meu lugar favorito no mundo"' },
-  { img: "fotos/foto3.jpg", caption: '"Minha melhor dupla ❤️"' },
-  { img: "fotos/foto4.jpg", caption: '"365 dias ao seu lado"' }
+  { img: "foto1.jpg", caption: '"O começo da nossa história..."' },
+  { img: "foto2.jpg", caption: '"Meu lugar favorito no mundo !! 🖤"' },
+  { img: "foto3.jpg", caption: '"Minha melhor dupla ❤️"' },
+  { img: "foto4.jpg", caption: '"365 dias ao seu lado"' }
 ];
+
 
 let currentSlide = 0;
 const carouselImg = document.getElementById("carousel-img");
