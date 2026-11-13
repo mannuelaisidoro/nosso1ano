@@ -807,11 +807,8 @@ eu te amo!! 🤍
       <button id="prev-slide" class="nav-arrow left">&#10094;</button>
       <button id="next-slide" class="nav-arrow right">&#10095;</button>
       
-      <!-- Imagens do carrossel em camadas (a ativa fica visível, as outras ocultas) -->
-      <img src="foto1.jpg" class="carousel-slide active" alt="Nossos momentos" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 1; transition: opacity 0.3s ease;" />
-      <img src="foto2.jpg" class="carousel-slide" alt="Nossos momentos" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;" />
-      <img src="foto3.jpg" class="carousel-slide" alt="Nossos momentos" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;" />
-      <img src="foto4.jpg" class="carousel-slide" alt="Nossos momentos" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;" />
+      <!-- A imagem principal com o ID certinho -->
+      <img id="carousel-img" src="foto1.jpg" alt="Nossos momentos" style="width: 100%; height: 100%; object-fit: contain;" />
     </div>
 
     <p id="carousel-caption" class="carousel-caption">"O começo da nossa história"</p>
@@ -826,6 +823,7 @@ eu te amo!! 🤍
 
   <div class="section-divider"><span>♥</span></div>
 </section>
+
 
 
     <!-- SEÇÃO 5: LINHA DO TEMPO (NOSSA HISTÓRIA) -->
