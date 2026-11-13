@@ -340,87 +340,58 @@ body {
   color: #f3e8ef;
 }
 
-/* CARROSSEL */
-.moments-section, .timeline-section {
-  text-align: center;
+// 4. Carrossel de fotos ("Nossos Momentos")
+const slides = [
+  { img: "foto1.jpg", caption: '"O começo da nossa história"' },
+  { img: "foto2.jpg", caption: '"Meu lugar favorito no mundo"' },
+  { img: "foto3.jpg", caption: '"Minha melhor dupla ❤️"' },
+  { img: "foto4.jpg", caption: '"365 dias ao seu lado"' }
+];
+
+let currentSlide = 0;
+const carouselImg = document.getElementById("carousel-img");
+const carouselCaption = document.getElementById("carousel-caption");
+const slideCounter = document.getElementById("slide-counter");
+const thumbs = document.querySelectorAll(".thumb");
+
+function showSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  
+  if (carouselImg) {
+    carouselImg.src = slides[currentSlide].img;
+    carouselImg.style.width = "100%";
+    carouselImg.style.height = "100%";
+    carouselImg.style.objectFit = "contain";
+  }
+
+  if (carouselCaption) {
+    carouselCaption.textContent = slides[currentSlide].caption;
+  }
+
+  if (slideCounter) {
+    slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  thumbs.forEach((t, i) => {
+    t.classList.toggle("active", i === currentSlide);
+  });
 }
 
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.85rem;
-  margin-bottom: 6px;
+const prevBtn = document.getElementById("prev-slide");
+const nextBtn = document.getElementById("next-slide");
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
 }
 
-.carousel-main {
-  position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid var(--card-border);
-  aspect-ratio: 3 / 4;
-  background: #1b0a17;
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
 }
 
-.carousel-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-.slide-counter {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-}
-
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  border: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.nav-arrow.left { left: 10px; }
-.nav-arrow.right { right: 10px; }
-
-.carousel-caption {
-  font-style: italic;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin: 14px 0;
-}
-
-.thumbnails {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.thumb {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-  border-radius: 12px;
-  opacity: 0.45;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: 0.2s ease;
-}
-
-.thumb.active {
-  opacity: 1;
+thumbs.forEach((thumb, index) => {
+  thumb.addEventListener("click", () => showSlide(index));
+});
+ opacity: 1;
   border-color: var(--pink-primary);
   transform: scale(1.06);
 }
