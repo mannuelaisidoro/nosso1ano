@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para o meu Amor ❤️ - 1 Ano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Fundo com corações flutuantes -->
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <!-- TELA 1: SURPRESA INICIAL -->
+  <section id="intro-screen" class="intro-screen">
+    <div class="intro-content">
+      <div class="heart-pulse">❤</div>
+      <p class="intro-subtitle">Uma surpresa especial te espera</p>
+      <button id="reveal-btn" class="glow-btn">
+        ♥ Clique aqui, amor ♥
+      </button>
+      <span class="tap-hint">Toque para revelar</span>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="main-content" class="main-content hidden">
+
+    <!-- SEÇÃO 1: CONTADOR -->
+    <section class="hero-section">
+      <div class="heart-pulse small">❤</div>
+      <h1 class="main-title">Para o meu<br>Amor</h1>
+      <div class="date-badge">
+        📅 Juntos desde 23 de novembro de 2025
+      </div>
+
+      <div class="counter-grid">
+        <div class="counter-card">
+          <span id="years" class="counter-number">0</span>
+          <span id="years-label" class="counter-label">ANO</span>
+        </div>
+        <div class="counter-card">
+          <span id="months" class="counter-number">0</span>
+          <span id="months-label" class="counter-label">MESES</span>
+        </div>
+        <div class="counter-card">
+          <span id="days" class="counter-number">0</span>
+          <span id="days-label" class="counter-label">DIAS</span>
+        </div>
+      </div>
+
+      <div class="clock-pill">
+        <span id="hours">00</span> : <span id="minutes">00</span> : <span id="seconds">00</span>
+      </div>
+
+      <p class="total-days-text">
+        ✨ São <strong id="total-days">0</strong> dias de amor ✨
+      </p>
+
+      <div class="scroll-indicator">
+        <div class="mouse"><div class="wheel"></div></div>
+      </div>
+
+      <div class="section-divider"><span>♥</span></div>
+    </section>
+
+    <!-- SEÇÃO 2: NOSSA MÚSICA -->
+    <section class="music-section">
+      <div class="glass-card music-card">
+        <div id="music-cover">
+          <div class="music-icon">♫</div>
+          <h2 class="section-title-sm">Nossa Música</h2>
+          <p class="section-subtitle">A trilha sonora do nosso amor</p>
+          <button id="discover-music-btn" class="outline-btn">
+            ▷ Clique para descobrir
+          </button>
+          <div class="music-notes">♪ ♫ ♪</div>
+        </div>
+
+        <!-- Player do Spotify (aparece ao clicar) -->
+        <div id="spotify-box" class="spotify-box hidden">
+          <p class="spotify-header">♥ Nossa Música ♥</p>
+          <!-- TROQUE O LINK ABAIXO PELO EMBED DA MÚSICA DE VOCÊS NO SPOTIFY -->
+          <iframe 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp?utm_source=generator&theme=0" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="section-divider"><span>♥</span></div>
+    </section>
+
+    <!-- SEÇÃO 3: CARTINHA -->
+    <section class="letter-section">
+      <div class="glass-card letter-card">
+        <span class="quote-mark top">“</span>
+        <p class="letter-text">
+          Eu te amo de um jeito que não cabe em palavras, mas mesmo assim eu tento. 
+          Te amo nos detalhes, nas pequenas coisas, no jeito que você fala, no jeito que sorri, 
+          no jeito que faz meus dias ficarem mais leves.<br><br>
+          Amo ir na sua casa, deitar em você e sentir que ali é a minha paz, 
+          amo assistir qualquer coisa juntos e até jogar Brawl com o meu duo favorito.<br><br>
+          Com você, tudo faz mais sentido. Feliz 1 ano de namoro, Gui. 
+          Que esse seja só o primeiro de muitos! ❤️
+        </p>
+        <span class="quote-mark bottom">”</span>
+      </div>
+
+      <div class="section-divider"><span>♥</span></div>
+    </section>
+
+    <!-- SEÇÃO 4: CARROSSEL NOSSOS MOMENTOS -->
+    <section class="moments-section">
+      <h2 class="section-title">Nossos Momentos</h2>
+      <p class="section-subtitle">Memórias que guardamos no coração</p>
+
+      <div class="carousel-wrapper">
+        <div class="carousel-main">
+          <span id="slide-counter" class="slide-counter">1 / 4</span>
+          <button id="prev-slide" class="nav-arrow left">❮</button>
+          <img id="carousel-img" src="fotos/foto1.jpg" alt="Nossos momentos" />
+          <button id="next-slide" class="nav-arrow right">❯</button>
+        </div>
+
+        <p id="carousel-caption" class="carousel-caption">"O começo da nossa história"</p>
+
+        <div class="thumbnails" id="thumbnails">
+          <img src="fotos/foto1.jpg" class="thumb active" data-index="0" alt="Thumb 1">
+          <img src="fotos/foto2.jpg" class="thumb" data-index="1" alt="Thumb 2">
+          <img src="fotos/foto3.jpg" class="thumb" data-index="2" alt="Thumb 3">
+          <img src="fotos/foto4.jpg" class="thumb" data-index="3" alt="Thumb 4">
+        </div>
+      </div>
+
+      <div class="section-divider"><span>♥</span></div>
+    </section>
+
+    <!-- SEÇÃO 5: LINHA DO TEMPO (NOSSA HISTÓRIA) -->
+    <section class="timeline-section">
+      <div class="clock-icon-top">🕒</div>
+      <h2 class="section-title">Nossa História</h2>
+      <p class="section-subtitle">Momentos que marcaram nossa jornada</p>
+
+      <div class="timeline">
+        <!-- Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-heart">♡</div>
+          <div class="timeline-card">
+            <span class="timeline-date">23 DE NOVEMBRO DE 2025</span>
+            <h3 class="timeline-title">O início de tudo</h3>
+            <p class="timeline-desc">O dia em que começamos a escrever nossa história juntos</p>
+            <img src="fotos/foto1.jpg" alt="O início de tudo" class="timeline-img" />
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-heart">♡</div>
+          <div class="timeline-card">
+            <span class="timeline-date">NOSSAS TARDES JUNTOS</span>
+            <h3 class="timeline-title">Meu lugar favorito</h3>
+            <p class="timeline-desc">Deitada em você, assistindo e esquecendo do mundo</p>
+            <img src="fotos/foto2.jpg" alt="Meu lugar favorito" class="timeline-img" />
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="timeline-item">
+          <div class="timeline-heart">♡</div>
+          <div class="timeline-card">
+            <span class="timeline-date">DUO IMBATÍVEL</span>
+            <h3 class="timeline-title">Jogando juntos</h3>
+            <p class="timeline-desc">Subindo troféus (ou passando raiva juntos no Brawl 🤡)</p>
+            <img src="fotos/foto3.jpg" alt="Jogando juntos" class="timeline-img" />
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="timeline-item">
+          <div class="timeline-heart">♡</div>
+          <div class="timeline-card">
+            <span class="timeline-date">23 DE NOVEMBRO DE 2026</span>
+            <h3 class="timeline-title">1 Ano de Nós</h3>
+            <p class="timeline-desc">365 dias te amando e escolhendo você todos os dias ❤️</p>
+            <img src="fotos/foto4.jpg" alt="1 Ano de Nós" class="timeline-img" />
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>Feito com amor para o Gui ♥</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
