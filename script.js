@@ -71,48 +71,12 @@ discoverMusicBtn.addEventListener("click", () => {
 });
 
 // 4. Carrossel de fotos ("Nossos Momentos")
-const captions = [
-  '"O começo da nossa história"',
-  '"Meu lugar favorito no mundo"',
-  '"Minha melhor dupla ❤️"',
-  '"365 dias ao seu lado"'
+const slides = [
+  { img: "foto1.jpg", caption: '"O começo da nossa história"' },
+  { img: "foto2.jpg", caption: '"Meu lugar favorito no mundo"' },
+  { img: "foto3.jpg", caption: '"Minha melhor dupla ❤️"' },
+  { img: "foto4.jpg", caption: '"365 dias ao seu lado"' }
 ];
-
-let currentSlide = 0;
-const slides = document.querySelectorAll(".carousel-slide");
-const carouselCaption = document.getElementById("carousel-caption");
-const slideCounter = document.getElementById("slide-counter");
-const thumbs = document.querySelectorAll(".thumb");
-
-function showSlide(index) {
-  currentSlide = (index + slides.length) % slides.length;
-
-  slides.forEach((slide, i) => {
-    if (i === currentSlide) {
-      slide.style.opacity = "1";
-      slide.style.pointerEvents = "auto";
-    } else {
-      slide.style.opacity = "0";
-      slide.style.pointerEvents = "none";
-    }
-  });
-
-  carouselCaption.textContent = captions[currentSlide];
-  slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
-
-  thumbs.forEach((t, i) => {
-    t.classList.toggle("active", i === currentSlide);
-  });
-}
-
-document.getElementById("prev-slide").addEventListener("click", () => showSlide(currentSlide - 1));
-document.getElementById("next-slide").addEventListener("click", () => showSlide(currentSlide + 1));
-
-thumbs.forEach((thumb, index) => {
-  thumb.addEventListener("click", () => showSlide(index));
-});
-
-
 
 let currentSlide = 0;
 const carouselImg = document.getElementById("carousel-img");
@@ -122,20 +86,42 @@ const thumbs = document.querySelectorAll(".thumb");
 
 function showSlide(index) {
   currentSlide = (index + slides.length) % slides.length;
-  carouselImg.src = slides[currentSlide].img;
-  carouselCaption.textContent = slides[currentSlide].caption;
-  slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+  
+  if (carouselImg) {
+    carouselImg.src = slides[currentSlide].img;
+    carouselImg.style.width = "100%";
+    carouselImg.style.height = "100%";
+    carouselImg.style.objectFit = "contain";
+  }
+
+  if (carouselCaption) {
+    carouselCaption.textContent = slides[currentSlide].caption;
+  }
+
+  if (slideCounter) {
+    slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
 
   thumbs.forEach((t, i) => {
     t.classList.toggle("active", i === currentSlide);
   });
 }
 
-document.getElementById("prev-slide").addEventListener("click", () => showSlide(currentSlide - 1));
-document.getElementById("next-slide").addEventListener("click", () => showSlide(currentSlide + 1));
-thumbs.forEach(thumb => {
-  thumb.addEventListener("click", () => showSlide(Number(thumb.dataset.index)));
+const prevBtn = document.getElementById("prev-slide");
+const nextBtn = document.getElementById("next-slide");
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+}
+
+thumbs.forEach((thumb, index) => {
+  thumb.addEventListener("click", () => showSlide(index));
 });
+
 
 // 5. Corações flutuando no fundo
 const bgHearts = document.getElementById("bgHearts");
