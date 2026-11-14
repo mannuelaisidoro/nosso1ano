@@ -527,3 +527,29 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 54px !important;
+  height: 54px !important;
+  max-width: 54px !important;
+  max-height: 54px !important;
+  object-fit: cover !important;
+  border-radius: 12px;
+  opacity: 0.45;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s ease;
+  display: block !important;
+}
+
+.thumb.active {
+  opacity: 1;
+  border-color: var(--pink-primary);
+  transform: scale(1.06);
+}
